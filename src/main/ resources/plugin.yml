@@ -1,0 +1,7 @@
+name: saPlantacoes
+version: 1.0
+main: me.samul.saplantacoes
+depend:
+  - Vault
+commands:
+  plantacoes:
