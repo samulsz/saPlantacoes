@@ -1,7 +1,45 @@
-name: saPlantacoes
-version: 1.0
-main: me.samul.saplantacoes
-depend:
-  - Vault
-commands:
-  plantacoes:
+#                 ____    _                   _
+#   ___    __ _  |  _ \  | |   __ _   _ __   | |_    __ _    ___    ___     ___   ___
+#  / __|  / _` | | |_) | | |  / _` | | '_ \  | __|  / _` |  / __|  / _ \   / _ \ / __|
+#  \__ \ | (_| | |  __/  | | | (_| | | | | | | |_  | (_| | | (__  | (_) | |  __/ \__ \
+# | ___/  \__,_| |_|     |_|  \__,_| |_| |_|  \__|  \__,_|  \___|  \___/   \___| |___/
+
+
+#Mundos onde o sistema de plantações irá funcionar
+worlds:
+  - 'world'
+
+Plantations:
+  melon:
+    price: 100.0
+    # A permissão é verificada após o "world", para que seja bloqueado a quebra apenas nos mundos em que a venda funcione!
+    permission: 'saplantacoes.melon'
+    rewards:
+      reward1:
+        chance: 100.0
+        commands:
+        - 'give {player} diamond 1'
+        name: '1x Diamante'
+  nether_wart:
+    price: 100.0
+    replant:
+      #Ativar sistema de replant?
+      activated: true
+      #Verificar se o player possui fungo no inventário e remover 1?
+      verify_inventory: false
+    # A permissão é verificada após o "world", para que seja bloqueado a quebra apenas nos mundos em que a venda funcione!
+    permission: 'saplantacoes.netherwart'
+    rewards:
+      reward1:
+        chance: 100.0
+        commands:
+          - 'give {player} diamond 1'
+        name: '1x Diamante'
+
+
+#Mensagens do plugin
+Messages:
+  sell: '&c&lVENDA! &cVocê vendeu &8x{drops} &ce ganhou &2$&f{price}&c!'
+  reload: '&aConfiguração recarregada!'
+  give: '&6&lPLANTAÇÕES! &6Você ganhou &8{reward-name}&6!'
+  no-permission: '&c&lERRO! &cVocê não possui permissão para quebrar esta plantação!'
